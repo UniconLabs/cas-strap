@@ -1,5 +1,23 @@
 apply plugin: "base"
 apply from: "http://dl.bintray.com/scalding/generic/waroverlay.gradle"
+apply plugin: "tomcat"
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.gradle.api.plugins:gradle-tomcat-plugin:1.0"
+    }
+}
+
+tomcatRunWar {
+    enableSSL = true
+}
+
+task run(type: org.gradle.api.plugins.tomcat.TomcatRunWar) {
+    enableSSL = true
+}
 
 task wrapper(type: Wrapper) {
   gradleVersion = project."gradle.version"
@@ -14,6 +32,12 @@ dependencies {
     runtime("org.jasig.cas:cas-server-webapp:${project."cas.version"}@war") {
         transitive = true
     }
+
+    ["core", "logging-juli", "jasper"].each {
+        tomcat("org.apache.tomcat.embed:tomcat-embed-${it}:${project."tomcat.version"}") {
+            exclude group: "org.eclipse.jdt.core.compiler", module: "ecj"
+        }
+    }
 }
 
 war {
@@ -21,8 +45,12 @@ war {
 }
 
 task createDist(type: Zip) {
-    from "."
-    exclude "build"
-    exclude ".*"
-    exclude "*.ipr", "*.iml"
+    def baseDir = { archiveName - ".zip" }
+    into(baseDir) {
+        from "."
+        exclude ".*"
+        exclude "build"
+        exclude ".*"
+        exclude "*.ipr", "*.iml"
+    }
 }
