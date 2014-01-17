@@ -1,0 +1,28 @@
+apply plugin: "base"
+apply from: "http://dl.bintray.com/scalding/generic/waroverlay.gradle"
+
+task wrapper(type: Wrapper) {
+  gradleVersion = project."gradle.version"
+}
+
+repositories {
+    mavenCentral artifactUrls: ["http://developer.jasig.org/repo/content/groups/m2-legacy/", "http://central.maven.org/maven2/"]
+    mavenRepo url: "http://oss.sonatype.org/content/repositories/releases/"
+}
+
+dependencies {
+    runtime("org.jasig.cas:cas-server-webapp:${project."cas.version"}@war") {
+        transitive = true
+    }
+}
+
+war {
+    baseName "cas"
+}
+
+task createDist(type: Zip) {
+    from "."
+    exclude "build"
+    exclude ".*"
+    exclude "*.ipr", "*.iml"
+}
