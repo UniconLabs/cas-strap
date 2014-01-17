@@ -1,23 +1,6 @@
 apply plugin: "base"
 apply from: "http://dl.bintray.com/scalding/generic/waroverlay.gradle"
-apply plugin: "tomcat"
-
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath "org.gradle.api.plugins:gradle-tomcat-plugin:1.0"
-    }
-}
-
-tomcatRunWar {
-    enableSSL = true
-}
-
-task run(type: org.gradle.api.plugins.tomcat.TomcatRunWar) {
-    enableSSL = true
-}
+apply from: "gradle/tomcat-plugin.gradle"
 
 task wrapper(type: Wrapper) {
   gradleVersion = project."gradle.version"
