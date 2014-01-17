@@ -52,5 +52,6 @@ task createDist(type: Zip) {
         exclude "build"
         exclude ".*"
         exclude "*.ipr", "*.iml"
+        exclude "*.log"
     }
 }
