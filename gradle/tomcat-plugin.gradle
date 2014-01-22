@@ -13,5 +13,9 @@ if (!project.plugins.findPlugin(org.gradle.api.plugins.tomcat.TomcatPlugin)) {
 }
 
 task run(type: org.gradle.api.plugins.tomcat.TomcatRunWar) {
+   doFirst {
+       println "here we are"
+       System.properties.put("ETC_ROOT", project.rootDir)
+   }
     enableSSL = true
 }
