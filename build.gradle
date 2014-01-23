@@ -1,6 +1,7 @@
 apply plugin: "base"
 apply from: "http://dl.bintray.com/scalding/generic/waroverlay.gradle"
-apply from: "gradle/tomcat-plugin.gradle"
+apply from: "gradle/aggregate.gradle"
+
 repositories {
     mavenCentral artifactUrls: ["http://developer.jasig.org/repo/content/groups/m2-legacy/", "http://central.maven.org/maven2/"]
     maven { url "http://oss.sonatype.org/content/repositories/releases/" }
@@ -20,20 +21,4 @@ dependencies {
 
 war {
     baseName "cas"
-}
-
-task createDist(type: Zip) {
-    def baseDir = { archiveName - ".zip" }
-    into(baseDir) {
-        from "."
-        exclude ".*"
-        exclude "build"
-        exclude ".*"
-        exclude "*.ipr", "*.iml"
-        exclude "*.log"
-    }
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = project."gradle.version"
 }
