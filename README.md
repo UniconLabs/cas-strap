@@ -5,11 +5,25 @@
 On Linux/Mac:
 
 ```shell
-./gradlew run
+./cas-strap run
 ```
 
 On Windows:
 
 ```shell
-gradlew.bat run
+cas-strap.bat run
+```
+
+## Building a war
+
+On Linux/Mac:
+
+```shell
+./cas-strap war
+```
+
+On Windows:
+
+```shell
+cas-strap.bat war
 ```
