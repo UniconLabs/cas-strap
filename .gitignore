@@ -5,3 +5,5 @@ build
 *.log
 out
 *.ipr
+gradlew
+gradle2.bat
