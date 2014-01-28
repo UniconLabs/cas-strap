@@ -2,6 +2,14 @@
 
 !Documentation coming!
 
+## Getting started
+
+* Download and install an appropriate JDK 1.7 (http://www.oracle.com/technetwork/java/javase/downloads/index.html). Make sure you download the JDK and not the JRE.
+* Download http://dl.bintray.com/apereo/Releases/cas-strap.zip
+* unzip cas-strap.zip
+
+## Running the server
+
 On Linux/Mac:
 
 ```shell
