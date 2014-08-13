@@ -5,6 +5,11 @@ apply from: "gradle/aggregate.gradle"
 repositories {
     mavenCentral artifactUrls: ["http://developer.jasig.org/repo/content/groups/m2-legacy/", "http://central.maven.org/maven2/"]
     maven { url "http://oss.sonatype.org/content/repositories/releases/" }
+    jcenter()
+    maven {
+        url "http://maven.springframework.org/milestone/"
+        artifactUrls "http://maven.springframework.org/snapshot/"
+    }
 }
 
 dependencies {
@@ -17,6 +22,7 @@ dependencies {
             exclude group: "org.eclipse.jdt.core.compiler", module: "ecj"
         }
     }
+    compile project(":cas-saml-auth")
 }
 
 war {

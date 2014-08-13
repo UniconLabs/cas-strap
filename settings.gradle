@@ -1,0 +1,2 @@
+include "cas-saml-auth"
+project(":cas-saml-auth").projectDir = new File(settingsDir, "../../../workspace/iu/cas-saml-auth")
