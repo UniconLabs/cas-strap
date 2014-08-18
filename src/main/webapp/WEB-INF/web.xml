@@ -51,14 +51,6 @@
     <filter-name>springSecurityFilterChain</filter-name>
     <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
   </filter>
-  <filter-mapping>
-    <filter-name>springSecurityFilterChain</filter-name>
-    <url-pattern>/status</url-pattern>
-  </filter-mapping>
-  <filter-mapping>
-    <filter-name>springSecurityFilterChain</filter-name>
-    <url-pattern>/services/*</url-pattern>
-  </filter-mapping>
 
   <filter>
     <filter-name>characterEncodingFilter</filter-name>
@@ -68,12 +60,6 @@
     <filter-name>characterEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
-
-    <filter-mapping>
-        <filter-name>springSecurityFilterChain</filter-name>
-        <url-pattern>/saml/*</url-pattern>
-    </filter-mapping>
 
   <!--
     - Loads the CAS ApplicationContext.
@@ -119,118 +105,6 @@
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
-	
-  <servlet-mapping>
-    <servlet-name>cas</servlet-name>
-    <url-pattern>/login</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>cas</servlet-name>
-    <url-pattern>/logout</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>cas</servlet-name>
-    <url-pattern>/validate</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>cas</servlet-name>
-    <url-pattern>/serviceValidate</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>cas</servlet-name>
-    <url-pattern>/samlValidate</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>cas</servlet-name>
-    <url-pattern>/proxy</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>cas</servlet-name>
-    <url-pattern>/proxyValidate</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>cas</servlet-name>
-    <url-pattern>/CentralAuthenticationService</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>cas</servlet-name>
-    <url-pattern>/services/add.html</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>cas</servlet-name>
-    <url-pattern>/services/viewStatistics.html</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>cas</servlet-name>
-    <url-pattern>/services/logout.html</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>cas</servlet-name>
-    <url-pattern>/services/loggedOut.html</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>cas</servlet-name>
-    <url-pattern>/services/manage.html</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>cas</servlet-name>
-    <url-pattern>/services/edit.html</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>cas</servlet-name>
-    <url-pattern>/openid/*</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>cas</servlet-name>
-    <url-pattern>/services/deleteRegisteredService.html</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-	<servlet-name>cas</servlet-name>
-	<url-pattern>/services/updateRegisteredServiceEvaluationOrder.html</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>cas</servlet-name>
-    <url-pattern>/status</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>cas</servlet-name>
-    <url-pattern>/authorizationFailure.html</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>cas</servlet-name>
-    <url-pattern>/403.html</url-pattern>
-  </servlet-mapping>
-
-
-
-    <servlet-mapping>
-        <servlet-name>cas</servlet-name>
-        <url-pattern>/saml/*</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>cas</servlet-name>
-        <url-pattern>/idpAuthnFinishedCallback</url-pattern>
-    </servlet-mapping>
 
   <session-config>
     <!-- Default to 5 minute session timeouts -->

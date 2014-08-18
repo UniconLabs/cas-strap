@@ -25,6 +25,8 @@ dependencies {
     compile project(":cas-saml-auth")
 }
 
+jar.enabled = true
 war {
     baseName "cas"
+    classpath jar
 }
