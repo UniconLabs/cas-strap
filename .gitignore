@@ -6,4 +6,4 @@ build
 out
 *.ipr
 gradlew
-gradle2.bat
+gradlew.bat
