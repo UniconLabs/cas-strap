@@ -14,8 +14,15 @@ if (!project.plugins.findPlugin(org.gradle.api.plugins.tomcat.TomcatPlugin)) {
 
 task run(type: org.gradle.api.plugins.tomcat.TomcatRunWar) {
    doFirst {
-       println "here we are"
        System.properties.put("ETC_ROOT", project.rootDir)
    }
     enableSSL = true
+}
+
+dependencies {
+    ["core", "logging-juli", "jasper"].each {
+        tomcat("org.apache.tomcat.embed:tomcat-embed-${it}:${project."tomcat.version"}") {
+            exclude group: "org.eclipse.jdt.core.compiler", module: "ecj"
+        }
+    }
 }

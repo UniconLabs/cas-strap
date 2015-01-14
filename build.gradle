@@ -11,12 +11,6 @@ dependencies {
     runtime("org.jasig.cas:cas-server-webapp:${project."cas.version"}@war") {
         transitive = true
     }
-
-    ["core", "logging-juli", "jasper"].each {
-        tomcat("org.apache.tomcat.embed:tomcat-embed-${it}:${project."tomcat.version"}") {
-            exclude group: "org.eclipse.jdt.core.compiler", module: "ecj"
-        }
-    }
 }
 
 war {
