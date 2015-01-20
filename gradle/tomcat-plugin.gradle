@@ -4,15 +4,19 @@ buildscript {
     }
 
     dependencies {
-        classpath "org.gradle.api.plugins:gradle-tomcat-plugin:1.0"
+        classpath "com.bmuschko:gradle-tomcat-plugin:2.0"
     }
 }
 
-if (!project.plugins.findPlugin(org.gradle.api.plugins.tomcat.TomcatPlugin)) {
-    project.apply(plugin: org.gradle.api.plugins.tomcat.TomcatPlugin)
+
+if (!project.plugins.findPlugin(com.bmuschko.gradle.tomcat.TomcatBasePlugin)) {
+    project.apply plugin: com.bmuschko.gradle.tomcat.TomcatBasePlugin
+}
+if (!project.plugins.findPlugin(com.bmuschko.gradle.tomcat.TomcatPlugin)) {
+    project.apply plugin: com.bmuschko.gradle.tomcat.TomcatPlugin
 }
 
-task run(type: org.gradle.api.plugins.tomcat.TomcatRunWar) {
+task run(type: com.bmuschko.gradle.tomcat.tasks.TomcatRunWar) {
    doFirst {
        System.properties.put("ETC_ROOT", project.rootDir)
    }
