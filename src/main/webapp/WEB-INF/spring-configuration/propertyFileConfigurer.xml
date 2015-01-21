@@ -9,8 +9,7 @@
         <property name="locations">
             <list>
                 <value>/WEB-INF/cas.properties</value>
-                <value>file:///etc/cas/cas.properties</value>
-                <value>file:///${ETC_ROOT}/etc/cas/cas.properties</value>
+                <value>file:///${etc.dir:${etc.root:}/etc/cas}/cas.properties</value>
             </list>
         </property>
         <property name="searchSystemEnvironment" value="true" />

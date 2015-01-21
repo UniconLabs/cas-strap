@@ -18,7 +18,7 @@ if (!project.plugins.findPlugin(com.bmuschko.gradle.tomcat.TomcatPlugin)) {
 
 task run(type: com.bmuschko.gradle.tomcat.tasks.TomcatRunWar) {
    doFirst {
-       System.properties.put("ETC_ROOT", project.rootDir)
+       System.properties.put("etc.dir", new File(project.rootDir, 'etc/cas'))
    }
     enableSSL = true
 }
