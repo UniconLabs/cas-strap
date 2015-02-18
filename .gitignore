@@ -7,3 +7,5 @@ out
 *.ipr
 gradlew
 gradlew.bat
+
+classes
